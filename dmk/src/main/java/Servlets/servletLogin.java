@@ -77,7 +77,7 @@ public class servletLogin extends HttpServlet {
 				} else {
 		
 					RequestDispatcher redirecionar = request.getRequestDispatcher("index.jsp");
-					request.setAttribute("msg", " AtenÃ§Ã£o!! usuario e senha tem de ser informados.");
+					request.setAttribute("msg", " Atentenção!! usuario e senha tem de ser informados.");
 					redirecionar.forward(request, response);
 		
 				}

@@ -60,7 +60,7 @@ public class FilterAutenticacao extends HttpFilter implements Filter {
 				 {
 			
 			RequestDispatcher redireciona = request.getRequestDispatcher("/index.jsp?url=" + urlParaAutenticar); // na tela de login passar a url
-			request.setAttribute("msg","Você não esta logado por favor realize o login");
+			request.setAttribute("msg","Voce nao esta logado por favor realize o login");
 			redireciona.forward(request, response);
 			return; /*Para a execução e redireciona para o login*/
 				
