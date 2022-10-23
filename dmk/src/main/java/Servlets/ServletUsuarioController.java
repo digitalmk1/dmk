@@ -48,7 +48,7 @@ public class ServletUsuarioController extends HttpServlet {
 			modeloLogin.setSenha(senha);
 			modeloLogin.setEmail(email);
 			
-			daoUsuarioRepository.gravarUsuario(modeloLogin);
+			modeloLogin = daoUsuarioRepository.gravarUsuario(modeloLogin);
 			
 			request.setAttribute("msg", "Operacao realizada com sucesso!!");
 			RequestDispatcher redireciona = request.getRequestDispatcher("principal/usuario.jsp");
