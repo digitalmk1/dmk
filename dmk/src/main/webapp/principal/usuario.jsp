@@ -54,7 +54,7 @@
 															</div>
 
 															<div class="form-group form-default">
-																<input type="text" name="login" id="login" value="${modeloLogin.login class="form-control" required="required"> 
+																<input type="text" name="login" id="login" class="form-control" required="required" value="${modeloLogin.login}" > 
 													            <span class="form-bar"></span> 
 													            <label class="float-label">Login:</label>
 															</div>
@@ -90,6 +90,7 @@
 												</div>
 											</div>
 										</div>
+										<span>${msg}</span>
 										<!--  project and team member end -->
 
 									</div>
