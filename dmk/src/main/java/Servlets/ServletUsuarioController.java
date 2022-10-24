@@ -35,6 +35,8 @@ public class ServletUsuarioController extends HttpServlet {
 		
 		try {
 			
+			String msg ="Operacao realizada com sucesso!!";
+			
 			String id = request.getParameter("id");	
 			String nome = request.getParameter("nome");
 			String login = request.getParameter("login");
@@ -48,13 +50,20 @@ public class ServletUsuarioController extends HttpServlet {
 			modeloLogin.setSenha(senha);
 			modeloLogin.setEmail(email);
 			
-			modeloLogin = daoUsuarioRepository.gravarUsuario(modeloLogin);
+			if(daoUsuarioRepository.validaLogin(modeloLogin.getLogin()) && modeloLogin.getId()== null) {
+				
+				msg = "já existe usuários com o mesmo login cadastrado, informe outro login.";
+			} else {
+				
+				modeloLogin = daoUsuarioRepository.gravarUsuario(modeloLogin);
+			}
 			
-			request.setAttribute("msg", "Operacao realizada com sucesso!!");
-			RequestDispatcher redireciona = request.getRequestDispatcher("principal/usuario.jsp");
-			request.setAttribute("modeloLogin", modeloLogin); //mantem os dados na tela
-			redireciona.forward(request, response);
 			
+			
+			
+			request.setAttribute("msg", msg);
+			request.setAttribute("modeloLogin", modeloLogin);
+			request.getRequestDispatcher("principal/usuario.jsp").forward(request, response);
 			
 		} catch (Exception e) {
            e.printStackTrace();
